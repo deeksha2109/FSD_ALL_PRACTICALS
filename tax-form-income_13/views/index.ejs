@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tax Form</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Income Tax Form</h1>
+        <% if (error) { %>
+            <p class="error">
+                <%= error %>
+            </p>
+            <% } %>
+                <form action="/calculate" method="POST">
+                    <label for="income1">Income from Source 1:</label>
+                    <input type="text" name="income1" id="income1" required>
+
+                    <label for="income2">Income from Source 2:</label>
+                    <input type="text" name="income2" id="income2" required>
+
+                    <button type="submit">Calculate Total</button>
+                </form>
+    </div>
+</body>
+
+</html>

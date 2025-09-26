@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Kids Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f8ff;
+            text-align: center;
+            padding: 50px;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        input,
+        select,
+        button {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🎉 Kids Calculator 🎉</h1>
+    <form action="/calculate" method="POST">
+        <input type="text" name="num1" placeholder="Enter first number" required>
+        <input type="text" name="num2" placeholder="Enter second number" required>
+        <br>
+        <select name="operation">
+            <option value="add">➕ Add</option>
+            <option value="subtract">➖ Subtract</option>
+            <option value="multiply">✖ Multiply</option>
+            <option value="divide">➗ Divide</option>
+        </select>
+        <br>
+        <button type="submit">Calculate</button>
+    </form>
+</body>
+
+</html>

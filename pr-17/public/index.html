@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tuition Admin Panel</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input, button { margin: 5px; padding: 8px; }
+    table { border-collapse: collapse; margin-top: 20px; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h2>Student Management</h2>
+
+  <input id="name" placeholder="Name">
+  <input id="age" type="number" placeholder="Age">
+  <input id="grade" placeholder="Grade">
+  <input id="contact" placeholder="Contact">
+  <button onclick="addStudent()">Add Student</button>
+
+  <table>
+    <thead>
+      <tr><th>Name</th><th>Age</th><th>Grade</th><th>Contact</th><th>Actions</th></tr>
+    </thead>
+    <tbody id="studentTable"></tbody>
+  </table>
+
+  <script>
+    const API = "/api/students";
+
+    async function loadStudents() {
+      const res = await fetch(API);
+      const data = await res.json();
+      const tbody = document.getElementById("studentTable");
+      tbody.innerHTML = "";
+      data.data.forEach(stu => {
+        tbody.innerHTML += `
+          <tr>
+            <td><input value="${stu.name}" id="n-${stu._id}"></td>
+            <td><input value="${stu.age}" id="a-${stu._id}" type="number"></td>
+            <td><input value="${stu.grade}" id="g-${stu._id}"></td>
+            <td><input value="${stu.contact}" id="c-${stu._id}"></td>
+            <td>
+              <button onclick="updateStudent('${stu._id}')">Update</button>
+              <button onclick="deleteStudent('${stu._id}')">Delete</button>
+            </td>
+          </tr>`;
+      });
+    }
+
+    async function addStudent() {
+      const student = {
+        name: document.getElementById("name").value,
+        age: document.getElementById("age").value,
+        grade: document.getElementById("grade").value,
+        contact: document.getElementById("contact").value
+      };
+      await fetch(API, { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify(student) });
+      loadStudents();
+    }
+
+    async function updateStudent(id) {
+      const student = {
+        name: document.getElementById(`n-${id}`).value,
+        age: document.getElementById(`a-${id}`).value,
+        grade: document.getElementById(`g-${id}`).value,
+        contact: document.getElementById(`c-${id}`).value
+      };
+      await fetch(`${API}/${id}`, { method: "PUT", headers: {"Content-Type":"application/json"}, body: JSON.stringify(student) });
+      loadStudents();
+    }
+
+    async function deleteStudent(id) {
+      await fetch(`${API}/${id}`, { method: "DELETE" });
+      loadStudents();
+    }
+
+    loadStudents();
+  </script>
+</body>
+</html>

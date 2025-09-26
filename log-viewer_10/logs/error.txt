@@ -1,0 +1,2 @@
+[2025-07-30 10:42:01] ERROR: Server crashed due to invalid input.
+[2025-07-30 10:45:00] WARNING: Memory usage high.
