@@ -1,0 +1,22 @@
+#root {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+nav a:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.container {
+  padding: 24px;
+}
+
+.footer {
+  text-align: center;
+}

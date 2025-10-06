@@ -1,0 +1,133 @@
+:root {
+  --bg: #0b1020;
+  --panel: #121a2b;
+  --text: #e6e9f2;
+  --muted: #a4acc4;
+  --primary: #7c5cff;
+  --primary-600: #6a49ff;
+  --danger: #ff5c7a;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: linear-gradient(180deg, #0b1020 0%, #0e1426 100%);
+  color: var(--text);
+}
+
+a {
+  color: var(--primary);
+}
+
+a:hover {
+  color: var(--primary-600);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+.navbar {
+  background: rgba(18, 26, 43, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 24px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 14px;
+}
+
+.footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(18, 26, 43, 0.7);
+  backdrop-filter: blur(8px);
+  color: var(--muted);
+}
+
+.footer-inner {
+  padding: 16px 24px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+.panel h2 {
+  margin-top: 0;
+}
+
+.form {
+  display: grid;
+  gap: 12px;
+}
+
+.input {
+  background: #0f172a;
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.input::placeholder {
+  color: #7b86a8;
+}
+
+.button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--primary-600);
+}
+
+.button-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.error {
+  color: var(--danger);
+  margin: 0 0 8px 0;
+}
+
+.centered {
+  display: grid;
+  place-items: center;
+  min-height: calc(100vh - 140px);
+}
