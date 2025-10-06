@@ -1,0 +1,20 @@
+{
+  "name": "townkart",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Root workspace scripts for TownKart frontend and backend",
+  "scripts": {
+    "install:all": "npm --prefix backend i && npm --prefix frontend i",
+    "dev": "concurrently -c \"blue,magenta\" -n \"backend,frontend\" \"npm --prefix backend run dev\" \"npm --prefix frontend run dev\"",
+    "seed": "npm --prefix backend run seed",
+    "start": "npm run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
+
+
+
+
+
